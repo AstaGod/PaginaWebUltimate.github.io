@@ -130,13 +130,15 @@ section p {
 .redes-sociales a {
     margin: 0 10px;
     font-size: 24px;
-    color: #000;
+    color: #000; /* Color de los iconos */
     transition: transform 0.3s ease;
 }
 
 .redes-sociales a:hover {
-    transform: scale(1.2);
+    transform: scale(1.2); /* Ampliación al pasar el mouse */
+    color: #1DA1F2; /* Color destacado para "X" o cualquier otra red */
 }
+
 
 /* Estilo para los elementos de la lista en la sección de servicios */
 #servicios ul {
