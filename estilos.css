@@ -260,10 +260,13 @@ button:hover {
     border-radius: 5px;
 }
 
+
+/* Boton enviar de formulario */
 #contacto form button {
     width: 250px;
-    margin-top: 950px; /* Aumenta el espacio superior */
+    margin-top: 290px; /* Aumenta el espacio superior */
     padding: 12px;
+    margin-left: -30%;
     background-color: #ff6347; /* Color del botón */
     border: none;
     color: white;
@@ -279,4 +282,206 @@ button:hover {
 
 #contacto form button:active {
     background-color: #ff6347; /* Cambio de color al hacer clic */
+}
+
+
+/* Estilo del botón de abrir el formulario */
+#openModalBtn {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#openModalBtn:hover {
+    background-color: #2980b9;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.close-btn {
+    background: #f44336;
+    color: white;
+    padding: 5px 10px;
+    margin-top: 289px;
+    margin-left: 30%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo del botón de abrir el formulario */
+#openModalBtn {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#openModalBtn:hover {
+    background-color: #2980b9;
+}
+
+/* Botón estilizado */
+#openModalBtn {
+    background-color: #3498db; /* Azul llamativo */
+    color: white; /* Texto blanco */
+    margin-left: -5.5%;
+    margin-top: 610px;
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin bordes */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+    cursor: pointer; /* Cambiar el cursor a una mano */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: all 0.3s ease; /* Transiciones suaves */
+}
+
+/* Efecto hover */
+#openModalBtn:hover {
+    background-color: #2980b9; /* Azul más oscuro */
+    transform: scale(1); /* Aumentar ligeramente el tamaño */
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.close-btn {
+    background: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Formulario */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#contactForm input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contactForm button {
+    padding: 10px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contactForm button:hover {
+    background-color: #2ecc71;
+}
+
+/* Tabla de datos */
+#dataTable {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+#dataTable th, #dataTable td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Estilo para el contenedor de los botones */
+button.delete, button.update {
+    display: inline-block; /* Los mantiene en una fila */
+    margin: 10px; /* Espacio entre los botones */
+    padding: 2.5px 5px; /* Tamaño de los botones */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+}
+
+/* Estilo para el botón eliminar */
+button.delete {
+    background-color: #e74c3c;
+    color: white;
+    margin-top: 50px;
+    margin-left: 150px;
+}
+
+button.delete:hover {
+    background-color: #c0392b;
+}
+
+/* Estilo para el botón actualizar */
+button.update {
+    background-color: #f39c12;
+    color: white;
+    margin-left: 150px;
+}
+
+button.update:hover {
+    background-color: #e67e22;
+}
+
+/* Estilo para la casilla de selección */
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
