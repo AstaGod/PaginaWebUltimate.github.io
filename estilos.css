@@ -434,49 +434,73 @@ button:hover {
 }
 
 /* Tabla de datos */
-#dataTable {
+/* Estilo para la tabla */
+table {
     width: 100%;
-    margin-top: 20px;
     border-collapse: collapse;
-    border: 1px solid #ddd;
 }
 
-#dataTable th, #dataTable td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
+table, th, td {
+    border: 1px solid #ccc;
 }
 
-/* Estilo para el contenedor de los botones */
-button.delete, button.update {
-    display: inline-block; /* Los mantiene en una fila */
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilo para el checkbox */
+.checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* Estilo para los botones de Eliminar y Actualizar seleccionados */
+button#deleteSelected, button#updateSelected {
+    padding: 6px 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+    display: inline-block; /* Los mantiene en línea */
     margin: 10px; /* Espacio entre los botones */
-    padding: 2.5px 5px; /* Tamaño de los botones */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer;
+    width: auto; /* El tamaño depende del contenido */
 }
 
-/* Estilo para el botón eliminar */
-button.delete {
-    background-color: #e74c3c;
-    color: white;
-    margin-top: 50px;
-    margin-left: 150px;
+/* Estilo para el botón Eliminar seleccionados */
+button#deleteSelected {
+    background-color: #e74c3c; /* Rojo para eliminar */
+    color: white; /* Texto blanco */
+    margin-top: 100px;
+    margin-left: 300px;
 }
 
-button.delete:hover {
-    background-color: #c0392b;
+button#deleteSelected:hover {
+    background-color: #c0392b; /* Rojo más oscuro al pasar el ratón */
+    transform: scale(1); /* Agrandar ligeramente el botón */
 }
 
-/* Estilo para el botón actualizar */
-button.update {
-    background-color: #f39c12;
-    color: white;
-    margin-left: 150px;
+button#deleteSelected:active {
+    background-color: #e74c3c; /* Mantener el color al hacer clic */
 }
 
-button.update:hover {
-    background-color: #e67e22;
+/* Estilo para el botón Actualizar seleccionados */
+button#updateSelected {
+    background-color: #f39c12; /* Naranja para actualizar */
+    color: white; /* Texto blanco */
+    margin-left: 300px;
+}
+
+button#updateSelected:hover {
+    background-color: #e67e22; /* Naranja más oscuro al pasar el ratón */
+    transform: scale(1); /* Agrandar ligeramente el botón */
+}
+
+button#updateSelected:active {
+    background-color: #f39c12; /* Mantener el color al hacer clic */
 }
 
 /* Estilo para la casilla de selección */

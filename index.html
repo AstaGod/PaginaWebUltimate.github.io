@@ -77,32 +77,27 @@
         <div id="modal" class="modal">
             <button id="closeModalBtn" class="close-btn">X</button>
 
-            <!-- Formulario de contacto -->
-            <h2>Formulario de Datos</h2>
-            <form id="contactForm">
-                <input type="text" id="name" placeholder="Nombre" required>
-                <input type="email" id="email" placeholder="Correo electrónico" required>
-                <input type="tel" id="phone" placeholder="Teléfono" required>
-                <button type="submit">Enviar</button>
-            </form>
+          <!-- Formulario Modal -->
+<form id="contactForm">
+  <input type="text" id="name" placeholder="Name" required>
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="tel" id="phone" placeholder="Phone" required>
+  <button type="submit">Submit</button>
+</form>
+<table id="dataTable">
+  <thead>
+      <tr>
+          <th>Seleccionar</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+      </tr>
+  </thead>
+  <tbody></tbody>
+</table>
 
-            <!-- Tabla de datos -->
-            <h3>Datos Enviados</h3>
-            <table id="dataTable">
-              <thead>
-                  <tr>
-                      <th>Seleccionar</th>
-                      <th>Nombre</th>
-                      <th>Correo</th>
-                      <th>Telefono</th>
-                      <th>Acción</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <!-- Aquí no hay filas predefinidas -->
-              </tbody>
-          </table>
-      
+<button id="deleteSelected">Eliminar seleccionados</button>
+<button id="updateSelected">Actualizar seleccionados</button>    
         </div>
         
         <div class="redes-sociales">

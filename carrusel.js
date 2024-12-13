@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para mover el carrusel a la derecha
     function moveRight() {
-        // Si no hemos llegado al final, seguimos sumando
         if (currentIndex < totalCards - cardsPerSlide) {
             currentIndex++;
         } else {
@@ -63,11 +62,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.getElementById('email').value;
         const phone = document.getElementById('phone').value;
 
+        // Deshabilitar el botón de envío temporalmente para evitar múltiples envíos
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+
+        // Si estamos editando, actualizamos la fila
         if (editingRow) {
-            // Si estamos editando, actualizamos la fila
-            editingRow.cells[0].textContent = name;
-            editingRow.cells[1].textContent = email;
-            editingRow.cells[2].textContent = phone;
+            editingRow.cells[1].textContent = name;
+            editingRow.cells[2].textContent = email;
+            editingRow.cells[3].textContent = phone;
 
             // Resetear la fila en edición
             editingRow = null;
@@ -75,29 +78,53 @@ document.addEventListener("DOMContentLoaded", function () {
             // Crear una nueva fila en la tabla
             const row = dataTable.insertRow();
 
+            // Insertar la celda del checkbox
+            const checkCell = row.insertCell(0);
+            const checkBox = document.createElement('input');
+            checkBox.type = 'checkbox';
+            checkBox.classList.add('checkbox');
+            checkCell.appendChild(checkBox);
+
             // Insertar las celdas de datos
-            const nameCell = row.insertCell(0);
-            const emailCell = row.insertCell(1);
-            const phoneCell = row.insertCell(2);
-            const actionCell = row.insertCell(3);
+            const nameCell = row.insertCell(1);
+            const emailCell = row.insertCell(2);
+            const phoneCell = row.insertCell(3);
 
             nameCell.textContent = name;
             emailCell.textContent = email;
             phoneCell.textContent = phone;
+        }
 
-            // Crear los botones de acción (Eliminar y Actualizar)
-            const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = 'Eliminar';
-            deleteBtn.classList.add('delete');
-            deleteBtn.onclick = function () {
-                // Eliminar la fila
-                dataTable.deleteRow(row.rowIndex - 1);
-            };
+        // Limpiar el formulario
+        contactForm.reset();
 
-            const updateBtn = document.createElement('button');
-            updateBtn.textContent = 'Actualizar';
-            updateBtn.classList.add('update');
-            updateBtn.onclick = function () {
+        // Habilitar el botón de envío nuevamente después de un breve retraso
+        setTimeout(() => {
+            submitButton.disabled = false;
+        }, 500); // Ajusta el tiempo según sea necesario
+    });
+
+    // Funcionalidad para seleccionar y eliminar filas usando checkboxes
+    document.getElementById('deleteSelected').addEventListener('click', () => {
+        const checkboxes = document.querySelectorAll('.checkbox');
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                const row = checkbox.closest('tr'); // Obtener la fila correspondiente al checkbox
+                row.remove(); // Eliminar la fila
+            }
+        });
+    });
+
+    // Función para actualizar las filas seleccionadas
+    document.getElementById('updateSelected').addEventListener('click', () => {
+        const checkboxes = document.querySelectorAll('.checkbox');
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                const row = checkbox.closest('tr'); // Obtener la fila correspondiente al checkbox
+                const name = row.cells[1].textContent;
+                const email = row.cells[2].textContent;
+                const phone = row.cells[3].textContent;
+
                 // Llenar el formulario con los datos de la fila seleccionada
                 document.getElementById('name').value = name;
                 document.getElementById('email').value = email;
@@ -105,41 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Guardar la fila actual como la fila a actualizar
                 editingRow = row;
-            };
-
-            // Agregar los botones a la celda de acciones
-            actionCell.appendChild(deleteBtn);
-            actionCell.appendChild(updateBtn);
-        }
-
-        // Limpiar el formulario
-        contactForm.reset();
-    });
-});
-
-
-// Selección de filas
-const deleteButton = document.querySelector('.delete');
-const updateButton = document.querySelector('.update');
-const checkboxes = document.querySelectorAll('.selectRow');
-
-// Función para actualizar la fila seleccionada
-updateButton.addEventListener('click', () => {
-    checkboxes.forEach((checkbox, index) => {
-        if (checkbox.checked) {
-            const row = checkbox.closest('tr');
-            // Aquí puedes agregar la lógica para actualizar la fila seleccionada
-            alert('Actualizar fila: ' + (index + 1)); // Placeholder para actualización
-        }
-    });
-});
-
-// Función para eliminar la fila seleccionada
-deleteButton.addEventListener('click', () => {
-    checkboxes.forEach((checkbox, index) => {
-        if (checkbox.checked) {
-            const row = checkbox.closest('tr');
-            row.remove(); // Elimina la fila seleccionada
-        }
+            }
+        });
     });
 });
